@@ -96,6 +96,76 @@
             margin: 0;
         }
 
+         /* Navigation Menu */
+        .navigation-menu {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0;
+            backdrop-filter: blur(10px);
+            border-top: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-list li {
+            margin: 0;
+        }
+
+        .nav-list a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 18px 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-list a:hover {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            border-bottom-color: #ffd700;
+            transform: translateY(-2px);
+        }
+
+        .nav-list a i {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-list a:hover i {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .nav-list a.active {
+            background: rgba(255, 215, 0, 0.3);
+            color: #ffd700;
+            border-bottom-color: #ffd700;
+        }
+
+        /* Mobile Menu Responsive */
+        @media (max-width: 768px) {
+            .nav-list {
+                flex-direction: column;
+            }
+            
+            .nav-list a {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+                border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            }
+        }
+
         /* Jumbotron Fullscreen */
         .jumbotron-section {
             height: 100vh;
@@ -302,6 +372,22 @@
                 <p>Unggul dalam Prestasi, Mulia dalam Akhlak</p>
             </div>
         </div>
+    </div>
+
+     <!-- Navigation Menu -->
+        <nav class="navigation-menu">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="#home"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="#brosur"><i class="fas fa-newspaper"></i> Brosur SPMB</a></li>
+                    <li><a href="#mug"><i class="fas fa-mug-hot"></i> Desain Mug</a></li>
+                    <li><a href="#kesimpulan"><i class="fas fa-check-circle"></i> Kesimpulan</a></li>
+                    <li><a href="#referensi"><i class="fas fa-book"></i> Referensi</a></li>
+                    <li><a href="#dokumentasi"><i class="fas fa-camera"></i> Dokumentasi</a></li>
+                    <li><a href="#kontak"><i class="fas fa-envelope"></i> Kontak</a></li>
+                </ul>
+            </div>
+        </nav>
     </div>
 
     <!-- Jumbotron Fullscreen Carousel -->
