@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentasi Karya - SMK Muhammadiyah 1 Yogyakarta</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            overflow-x: hidden;
+        }
+
+        /* Header dengan Border Animasi Gold */
+        .header-section {
+            background: linear-gradient(135deg, #1a4d2e 0%, #2d5f3f 100%);
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            animation: borderMove 3s linear infinite;
+        }
+
+        .header-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            animation: borderMove 3s linear infinite;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes borderMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(200%); }
+        }
+
+        .logo-container {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .logo-box {
+            display: inline-block;
+            padding: 30px;
+            border: 3px solid #ffd700;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: auto;
+            border-radius: 10px; /* opsional, bisa dihapus */
+}
+
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
+            50% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.8); }
+        }
+
+        .logo-box h1 {
+            color: #1a4d2e;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo-box p {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        /* Jumbotron Fullscreen */
+        .jumbotron-section {
+            height: 100vh;
+            position: relative;
+        }
+
+        .carousel-item {
+            height: 100vh;
+            background: #000;
+        }
+
+        .carousel-item img {
+            height: 100vh;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .carousel-caption {
+            background: rgba(26, 77, 46, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #ffd700;
+        }
+
+        /* Section Content */
+        .content-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1a4d2e;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ffd700, #1a4d2e);
+        }
+
+        /* Detail Cards */
+        .detail-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #ffd700;
+            transition: transform 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .detail-card h4 {
+            color: #1a4d2e;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .detail-card p {
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* Conclusion Section */
+        .conclusion-section {
+            background: linear-gradient(135deg, #1a4d2e 0%, #2d5f3f 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        /* Thank You Animation */
+        .thankyou-section {
+            background: #000;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .thankyou-text {
+            font-size: 4rem;
+            font-weight: bold;
+            animation: colorChange 3s linear infinite, moveHorizontal 8s linear infinite, zoomInOut 2s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+
+        @keyframes colorChange {
+            0% { color: #ff0000; }
+            16% { color: #ff7f00; }
+            33% { color: #ffff00; }
+            50% { color: #00ff00; }
+            66% { color: #0000ff; }
+            83% { color: #8b00ff; }
+            100% { color: #ff0000; }
+        }
+
+        @keyframes moveHorizontal {
+            0%, 100% { transform: translateX(-20%); }
+            50% { transform: translateX(20%); }
+        }
+
+        @keyframes zoomInOut {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a4d2e 0%, #0d2618 100%);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        footer h5 {
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #ffd700;
+        }
+
+        /* Carousel Indicators Custom */
+        .carousel-indicators button {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #ffd700 !important;
+        }
+
+        /* Reference Section */
+        .reference-section {
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            padding: 80px 0;
+        }
+
+        /* Documentation Section */
+        .documentation-section {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .doc-image {
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+            border: 3px solid #ffd700;
+        }
+
+        .doc-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header dengan Logo -->
+    <div class="header-section">
+        <div class="logo-container">
+            <div class="logo-box flex items-center gap-4">
+                <!-- LOGO JPG -->
+        <img src="logo muhi.jpeg" alt="Logo SMK" class="logo-img">
+                <h1> SMK MUHAMMADIYAH 1 YOGYAKARTA</h1>
+                <p>Unggul dalam Prestasi, Mulia dalam Akhlak</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jumbotron Fullscreen Carousel -->
+    <div id="jumbotronCarousel" class="carousel slide jumbotron-section" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#jumbotronCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#jumbotronCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#jumbotronCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#jumbotronCarousel" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#jumbotronCarousel" data-bs-slide-to="4"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1561489413-985b06da5bee?w=1920&h=1080&fit=crop" alt="Portfolio 1">
+                <div class="carousel-caption">
+                    <h1>PRESENTASI KARYA DESAIN GRAFIS</h1>
+                    <p>Brosur SPMB & Desain Mug</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=1920&h=1080&fit=crop" alt="Portfolio 2">
+                <div class="carousel-caption">
+                    <h1>KREATIVITAS TANPA BATAS</h1>
+                    <p>Menghadirkan Desain Profesional</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1920&h=1080&fit=crop" alt="Portfolio 3">
+                <div class="carousel-caption">
+                    <h1>INOVASI DESAIN MODERN</h1>
+                    <p>Karya Siswa Terbaik</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=1920&h=1080&fit=crop" alt="Portfolio 4">
+                <div class="carousel-caption">
+                    <h1>PORTOFOLIO UNGGULAN</h1>
+                    <p>Desain yang Menarik dan Bermakna</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1920&h=1080&fit=crop" alt="Portfolio 5">
+                <div class="carousel-caption">
+                    <h1>KARYA PENUH MAKNA</h1>
+                    <p>SMK Muhammadiyah 1 Yogyakarta</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#jumbotronCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#jumbotronCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <!-- Section A: Brosur SPMB -->
+    <div class="content-section" style="background: linear-gradient(135deg, #ffffff 0%, #f0f9f4 100%);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>A. BROSUR SPMB</h2>
+            </div>
+
+            <!-- Carousel Brosur -->
+            <div id="brosurCarousel" class="carousel slide mb-5" data-bs-ride="carousel" style="height: 80vh;">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#brosurCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#brosurCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#brosurCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#brosurCarousel" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#brosurCarousel" data-bs-slide-to="4"></button>
+                </div>
+                <div class="carousel-inner" style="height: 100%;">
+                    <div class="carousel-item active" style="height: 100%;">
+                        <img src="/img/brosur 1.jpeg" style="height: 100%; object-fit: cover; width: 100%;" alt="Brosur 1">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;">
+                        <img src="/img/brosur 2.jpeg" style="height: 100%; object-fit: cover; width: 100%;" alt="Brosur 2">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;">
+                        <img src="https://images.unsplash.com/photo-1586281380614-8f33603f9325?w=1920&h=1080&fit=crop" style="height: 100%; object-fit: cover; width: 100%;" alt="Brosur 3">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;">
+                        <img src="https://images.unsplash.com/photo-1586281380923-928134a30f2d?w=1920&h=1080&fit=crop" style="height: 100%; object-fit: cover; width: 100%;" alt="Brosur 4">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;">
+                        <img src="https://images.unsplash.com/photo-1586281380857-3fdb5913f808?w=1920&h=1080&fit=crop" style="height: 100%; object-fit: cover; width: 100%;" alt="Brosur 5">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#brosurCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#brosurCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+
+            <!-- Detail Brosur -->
+            <div class="row">
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-ruler-combined"></i> 1. Prinsip Desain</h4>
+                        <p>Menggunakan prinsip hierarki visual, keseimbangan asimetris, dan unity untuk menciptakan komposisi yang menarik. Penerapan white space yang optimal memberikan ruang napas pada elemen desain.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-palette"></i> 2. Kode Warna</h4>
+                        <p>Primary: #1a4d2e (Hijau Islami), #ffd700 (Gold). Secondary: #FFFFFF (Putih), #000000 (Hitam). Accent: #2d5f3f, #c9a961.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-lightbulb"></i> 3. Filosofi Warna</h4>
+                        <p>Hijau melambangkan nilai-nilai Islam dan kesegaran, Gold merepresentasikan prestasi dan keunggulan, Putih sebagai simbol kesucian, Hitam untuk ketegasan dan profesionalitas.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-font"></i> 4. Pemilihan Font</h4>
+                        <p>Heading: Montserrat Bold - modern dan tegas. Body: Open Sans Regular - mudah dibaca dan profesional. Accent: Playfair Display - elegan untuk highlight.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-quote-left"></i> 5. Filosofi Font</h4>
+                        <p>Kombinasi sans-serif dan serif menciptakan kontras yang seimbang antara modernitas dan elegance, mencerminkan karakter sekolah yang maju namun tetap berakar pada nilai tradisional.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-magic"></i> 6. Teknik yang Digunakan</h4>
+                        <p>Vector tracing, photo manipulation, gradient mesh, layer masking, typography treatment, color grading, dan teknik compositing untuk menghasilkan desain yang harmonis.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-laptop-code"></i> 7. Software</h4>
+                        <p>Adobe Photoshop CC untuk photo editing, Adobe Illustrator untuk vector graphics, CorelDRAW untuk layout design, dan Canva untuk mock-up presentation.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-tasks"></i> 8. Langkah Kerja</h4>
+                        <p>1) Riset dan brainstorming 2) Sketching dan wireframe 3) Pemilihan warna dan tipografi 4) Digitalisasi desain 5) Revisi dan finalisasi 6) Export untuk cetak.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-exclamation-triangle"></i> 9. Kendala</h4>
+                        <p>Kesulitan dalam menyeimbangkan banyak informasi dalam ruang terbatas, matching warna untuk cetak, dan memastikan readability di berbagai ukuran.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-check-circle"></i> 10. Solusi</h4>
+                        <p>Menerapkan grid system yang kuat, melakukan color proofing berulang, menggunakan hierarki tipografi yang jelas, dan testing readability di berbagai media.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section B: Desain Mug -->
+    <div class="content-section" style="background: linear-gradient(135deg, #f0f9f4 0%, #ffffff 100%);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>B. DESAIN MUG</h2>
+            </div>
+
+            <!-- Carousel Mug -->
+            <div id="mugCarousel" class="carousel slide mb-5" data-bs-ride="carousel" style="height: 80vh;">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#mugCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#mugCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#mugCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#mugCarousel" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#mugCarousel" data-bs-slide-to="4"></button>
+                </div>
+                <div class="carousel-inner" style="height: 100%;">
+                    <div class="carousel-item active" style="height: 100%;">
+                        <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=1920&h=1080&fit=crop" style="height: 100%; object-fit: cover; width: 100%;" alt="Mug 1">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;">
+                        <img src="https://images.unsplash.com/photo-1517256673644-36ad11246d21?w=1920&h=1080&fit=crop" style="height: 100%; object-fit: cover; width: 100%;" alt="Mug 2">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;">
+                        <img src="https://images.unsplash.com/photo-1572723622807-2b17cbdba01b?w=1920&h=1080&fit=crop" style="height: 100%; object-fit: cover; width: 100%;" alt="Mug 3">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;">
+                        <img src="https://images.unsplash.com/photo-1595981234058-26d5c7d7c5b4?w=1920&h=1080&fit=crop" style="height: 100%; object-fit: cover; width: 100%;" alt="Mug 4">
+                    </div>
+                    <div class="carousel-item" style="height: 100%;">
+                        <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=1920&h=1080&fit=crop" style="height: 100%; object-fit: cover; width: 100%;" alt="Mug 5">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#mugCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#mugCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+
+            <!-- Detail Mug -->
+            <div class="row">
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-ruler-combined"></i> 1. Prinsip Desain</h4>
+                        <p>Menerapkan prinsip contrast yang kuat, repetition untuk brand consistency, alignment yang presisi, dan proximity dalam pengelompokan elemen visual pada permukaan 360 derajat mug.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-palette"></i> 2. Kode Warna</h4>
+                        <p>Dominant: #1a4d2e (Hijau), #ffd700 (Gold). Complementary: #FFFFFF, #000000. Gradient: Linear dari #1a4d2e ke #2d5f3f untuk depth.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-lightbulb"></i> 3. Filosofi Warna</h4>
+                        <p>Kombinasi hijau-gold menciptakan kesan premium namun tetap ramah. Warna hijau memberikan energi positif saat digunakan sehari-hari, sementara gold menambah nilai eksklusif produk merchandise.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-font"></i> 4. Pemilihan Font</h4>
+                        <p>Primary: Raleway Bold untuk logo, Secondary: Lato Medium untuk tagline. Font dipilih dengan mempertimbangkan readability pada surface curved dan scalability.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-quote-left"></i> 5. Filosofi Font</h4>
+                        <p>Font geometric sans-serif memberikan impression modern dan clean, cocok untuk merchandise yang akan digunakan dalam waktu lama dan harus tetap terlihat contemporary.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-magic"></i> 6. Teknik yang Digunakan</h4>
+                        <p>3D mockup rendering, cylindrical mapping, color separation untuk printing, vector-based design untuk scalability, dan smart object untuk efficient workflow.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-laptop-code"></i> 7. Software</h4>
+                        <p>Adobe Illustrator untuk vector design, Adobe Photoshop untuk mockup, Blender untuk 3D rendering preview, dan specialized printing software untuk color proofing.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-tasks"></i> 8. Langkah Kerja</h4>
+                        <p>1) Konsep dan sketching 2) Vector design creation 3) Cylindrical template mapping 4) Color adjustment 5) Mockup rendering 6) Print specification 7) Production testing.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-exclamation-triangle"></i> 9. Kendala</h4>
+                        <p>Distorsi pada permukaan melengkung, keterbatasan area cetak, perbedaan warna hasil cetak pada material keramik, dan durability desain terhadap panas dan pencucian.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-check-circle"></i> 10. Solusi</h4>
+                        <p>Menggunakan template khusus mug, melakukan multiple test print, memilih ink berkualitas tinggi yang heat-resistant, dan simplifikasi desain untuk menjaga ketahanan visual.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kesimpulan -->
+    <div class="conclusion-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 text-center fade-in">
+                    <h2 style="font-size: 3rem; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                        <i class="fas fa-star"></i> KESIMPULAN <i class="fas fa-star"></i>
+                    </h2>
+                    <div class="conclusion-video" style="margin: 50px auto; max-width: 1000px;">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&h=1080&fit=crop" 
+                             style="width: 100%; border-radius: 20px; border: 5px solid #ffd700; box-shadow: 0 20px 60px rgba(0,0,0,0.4);" 
+                             alt="Kesimpulan">
+                    </div>
+                    <p style="font-size: 1.4rem; line-height: 2; max-width: 900px; margin: 30px auto; text-align: justify;">
+                        Proyek desain ini telah mengajarkan kami pentingnya memahami prinsip-prinsip desain grafis yang baik, mulai dari pemilihan warna yang bermakna, tipografi yang tepat, hingga teknik produksi yang profesional. 
+                        Setiap kendala yang dihadapi menjadi pembelajaran berharga dalam mengasah skill dan kreativitas. Kami berkomitmen untuk terus berkembang dan menghasilkan karya-karya terbaik yang membanggakan SMK Muhammadiyah 1 Yogyakarta.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Referensi -->
+    <div class="reference-section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>REFERENSI</h2>
+            </div>
+            <div id="referenceCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#referenceCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#referenceCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#referenceCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#referenceCarousel" data-bs-slide-to="3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop" 
+                                     class="doc-image w-100" alt="Reference 1">
+                                <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Design Inspiration 1</h5>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=600&fit=crop" 
+                                     class="doc-image w-100" alt="Reference 2">
+                                <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Design Inspiration 2</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&h=600&fit=crop" 
+                                     class="doc-image w-100" alt="Reference 3">
+                                <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Color Palette Reference</h5>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop" 
+                                     class="doc-image w-100" alt="Reference 4">
+                                <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Typography Reference</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <img src="https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?w=800&h=600&fit=crop" 
+                                     class="doc-image w-100" alt="Reference 5">
+                                <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Layout Reference</h5>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&h=600&fit=crop" 
+                                     class="doc-image w-100" alt="Reference 6">
+                                <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Branding Reference</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&h=600&fit=crop" 
+                                     class="doc-image w-100" alt="Reference 7">
+                                <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Print Design Reference</h5>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop" 
+                                     class="doc-image w-100" alt="Reference 8">
+                                <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Mockup Reference</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#referenceCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" style="filter: invert(1);"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#referenceCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" style="filter: invert(1);"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ucapan Terima Kasih dengan Animasi -->
+    <div class="thankyou-section">
+        <div class="thankyou-text">
+            TERIMA KASIH<br>
+            <span style="font-size: 2rem;">KELOMPOK KAMI</span>
+        </div>
+    </div>
+
+    <!-- Dokumentasi -->
+    <div class="documentation-section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>DOKUMENTASI PROSES PEMBUATAN</h2>
+                <p style="color: #666; font-size: 1.2rem; margin-top: 20px;">Behind The Scene - Proses Kreatif Tim Kami</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4 fade-in">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=800&fit=crop" 
+                         class="doc-image w-100" alt="Dokumentasi 1">
+                    <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Brainstorming Session</h5>
+                </div>
+                <div class="col-md-4 mb-4 fade-in">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=800&fit=crop" 
+                         class="doc-image w-100" alt="Dokumentasi 2">
+                    <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Design Process</h5>
+                </div>
+                <div class="col-md-4 mb-4 fade-in">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=800&fit=crop" 
+                         class="doc-image w-100" alt="Dokumentasi 3">
+                    <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Team Collaboration</h5>
+                </div>
+                <div class="col-md-4 mb-4 fade-in">
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&h=800&fit=crop" 
+                         class="doc-image w-100" alt="Dokumentasi 4">
+                    <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Digital Editing</h5>
+                </div>
+                <div class="col-md-4 mb-4 fade-in">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=800&fit=crop" 
+                         class="doc-image w-100" alt="Dokumentasi 5">
+                    <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Review & Discussion</h5>
+                </div>
+                <div class="col-md-4 mb-4 fade-in">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=800&fit=crop" 
+                         class="doc-image w-100" alt="Dokumentasi 6">
+                    <h5 class="text-center mt-3" style="color: #1a4d2e; font-weight: bold;">Final Presentation</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="fas fa-school"></i> SMK MUHAMMADIYAH 1 YOGYAKARTA</h5>
+                    <p style="line-height: 1.8; color: #ddd;">
+                        Sekolah Menengah Kejuruan yang mengembangkan pendidikan berbasis kompetensi dengan nilai-nilai Islami dan karakter Muhammadiyah.
+                    </p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5><i class="fas fa-graduation-cap"></i> JURUSAN</h5>
+                    <p style="color: #ddd;">Desain Komunikasi Visual</p>
+                    <p style="color: #ddd;">Multimedia</p>
+                    <p style="color: #ddd;">Rekayasa Perangkat Lunak</p>
+                    <p style="color: #ddd;">Teknik Komputer dan Jaringan</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5><i class="fas fa-map-marker-alt"></i> ALAMAT</h5>
+                    <p style="color: #ddd; line-height: 1.8;">
+                        Jl. Nitikan Baru No.41, Sorosutan,<br>
+                        Kec. Umbulharjo, Kota Yogyakarta,<br>
+                        Daerah Istimewa Yogyakarta 55162
+                    </p>
+                    <p style="color: #ddd;">
+                        <i class="fas fa-phone"></i> (0274) 589597<br>
+                        <i class="fas fa-envelope"></i> info@smkmuh1yk.sch.id
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h5 class="text-center mb-3"><i class="fas fa-map-marked-alt"></i> LOKASI SEKOLAH</h5>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.0315738472596!2d110.39866131477696!3d-7.813131794385339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5787c6c2ae4f%3A0x7d088c5d8e515e0e!2sSMK%20Muhammadiyah%201%20Yogyakarta!5e0!3m2!1sid!2sid!4v1637234567890!5m2!1sid!2sid" 
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <hr style="border-color: #ffd700; margin-bottom: 20px;">
+                    <p style="color: #ddd; margin: 0;">
+                        &copy; 2024 SMK Muhammadiyah 1 Yogyakarta - Jurusan Desain Komunikasi Visual
+                    </p>
+                    <p style="color: #ffd700; margin-top: 10px;">
+                        <i class="fas fa-heart"></i> Dibuat dengan penuh dedikasi oleh siswa-siswi terbaik
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Auto play carousel
+        const carousels = document.querySelectorAll('.carousel');
+        carousels.forEach(carousel => {
+            new bootstrap.Carousel(carousel, {
+                interval: 4000,
+                wrap: true
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for header
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const header = document.querySelector('.header-section');
+            if (header) {
+                header.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
